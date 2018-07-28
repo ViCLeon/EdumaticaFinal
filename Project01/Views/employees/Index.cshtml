@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Project01.Models.employee>
+
+@{
+    ViewBag.Title = "Empleados";
+}
+
+<div class="page-titleContainer">
+    <h2 class="page-title">Administración de empleados</h2>
+</div>
+
+<div class="page-controlButtonContainer">
+    @Html.ActionLink(" Nuevo registro", "Create", null, null, new { @class = "btn btn-primary btn-large fa fa-trash" })
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department.dpt_Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.department.dpt_Description)
+            </td>
+            <td>
+                <button id="edit" onclick="popup(@item.employeeid)" class="btn btn-primary btn-sm">Modificar</button>
+                @Html.ActionLink("Detalle", "Details", null, new { id = item.employeeid }, new { @class = "btn btn-success btn-sm" })
+                @Html.ActionLink("Eliminar", "Delete", null, new { id = item.employeeid }, new { @class = "btn btn-danger btn-sm" })
+                @Html.ActionLink("PDF", "DownloadViewPDF", "service", new { id = item.employeeid }, new { @class = "btn btn-info btn-sm" })
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+<a class="btn btn-danger" href="#">
+    <i class="fa fa-trash"></i> Delete
+</a>
+
+
+@Html.Partial("_Partial1")
+@Html.Partial("_Partial2", (IEnumerable<Project01.Models.employee>) ViewBag.data);

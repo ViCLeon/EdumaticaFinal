@@ -1,0 +1,28 @@
+﻿@model Project01.Models.department
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-titleContainer">
+    <h2 class="page-title">Detalle departamento</h2>
+</div>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dpt_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpt_Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modificar", "Edit", null, new { id = Model.departmentid }, new { @class = "btn btn-info btn-sm" }) |
+    @Html.ActionLink("Listado", "Index", null, null, new { @class = "btn btn-primary btn-sm" })
+</p>

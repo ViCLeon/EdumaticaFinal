@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Project01.Models.employee>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department.dpt_Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department.dpt_Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.employeeid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.employeeid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.employeeid })
+        </td>
+    </tr>
+}
+
+</table>

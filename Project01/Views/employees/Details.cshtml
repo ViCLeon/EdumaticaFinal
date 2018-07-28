@@ -1,0 +1,52 @@
+﻿@model Project01.Models.employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-titleContainer">
+    <h2 class="page-title">Detalle empleado</h2>
+</div>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.department.dpt_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.department.dpt_Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modificar", "Edit", null, new { id = Model.employeeid }, new { @class = "btn btn-info btn-sm" }) |
+    @Html.ActionLink("Listado", "Index", null, null, new { @class = "btn btn-primary btn-sm" })
+</p>

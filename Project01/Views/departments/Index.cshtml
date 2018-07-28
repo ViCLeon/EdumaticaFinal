@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Project01.Models.department>
+
+@{
+    ViewBag.Title = "Departamentos";
+}
+
+<div class="page-titleContainer">
+    <h2 class="page-title">Administración de departamentos</h2>
+</div>
+
+
+<div class="page-controlButtonContainer">
+    @Html.ActionLink("Nuevo registro", "Create", null, new { @class = "btn btn-primary btn-large" })
+</div>
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dpt_Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dpt_Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", null, new { id = item.departmentid }, new { @class = "btn btn-primary btn-sm" }) |
+                    @Html.ActionLink("Detalle", "Details", null,  new { id = item.departmentid }, new { @class = "btn btn-success btn-sm" }) |
+                    @Html.ActionLink("Eliminar", "Delete", null, new { id = item.departmentid }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
